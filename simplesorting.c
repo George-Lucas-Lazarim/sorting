@@ -8,6 +8,11 @@
 
 #define SIZE 100000
 
+void printArray(int array[], int size) {
+    for (int i = 0; i < size; i++) printf("%d ", array[i]);
+    printf("\n");
+}
+
 int main() {
     int* messyArray = (int*) malloc (SIZE * sizeof(int));
     int* bubbleArray = (int*) malloc (SIZE * sizeof(int));
@@ -32,6 +37,11 @@ int main() {
     clock_t start, end;
     double timeSpent;
 
+    /*
+    printf("\nThe generated random array: ");
+    printArray(messyArray, SIZE);
+    */
+
     printf("\n=== Starting speed test ===");
 
     start = clock();
@@ -39,28 +49,36 @@ int main() {
     end = clock();
 
     timeSpent = ((double) (end - start)) / CLOCKS_PER_SEC;
-    printf("\nTime spent sorting an array using the bubble sort algorithm: %f seconds", timeSpent);
+    printf("\nTime spent sorting an array using the bubble sort algorithm: %f seconds ", timeSpent);
+
+    // printArray(bubbleArray, SIZE);
 
     start = clock();
     mergeSortBottomUp(mergeArrayBottomUp, SIZE);
     end = clock();
 
     timeSpent = ((double) (end - start)) / CLOCKS_PER_SEC;
-    printf("\nTime spent sorting an array using the merge sort bottom up algorithm: %f seconds", timeSpent);
+    printf("\nTime spent sorting an array using the merge sort bottom up algorithm: %f seconds ", timeSpent);
+
+    // printArray(mergeArrayBottomUp, SIZE);
 
     start = clock();
     mergeSortTopDown(mergeArrayTopDown, 0, SIZE - 1);
     end = clock();
 
     timeSpent = ((double) (end - start)) / CLOCKS_PER_SEC;
-    printf("\nTime spent sorting an array using the merge sort top down algorithm: %f seconds", timeSpent);
+    printf("\nTime spent sorting an array using the merge sort top down algorithm: %f seconds ", timeSpent);
+
+    // printArray(mergeArrayTopDown, SIZE);
 
     start = clock();
     quickSort(quickArray, 0, SIZE - 1);
     end = clock();
 
     timeSpent = ((double) (end - start)) / CLOCKS_PER_SEC;
-    printf("\nTime spent sorting an array using the quick sort algorithm: %f seconds", timeSpent);
+    printf("\nTime spent sorting an array using the quick sort algorithm: %f seconds ", timeSpent);
+
+    // printArray(quickArray, SIZE);
 
     free(messyArray);
     free(bubbleArray);
