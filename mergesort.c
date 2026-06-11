@@ -27,8 +27,8 @@ void merge (int array[], int f, int mid, int l) {
     }
 
     while (j <= l) {
-        auxArray[k] = array[i];
-        i++;
+        auxArray[k] = array[j];
+        j++;
         k++;
     }
     

@@ -25,6 +25,6 @@ void quickSort (int array[], int f, int l) {
 
     int pi = partition(array, f, l);
 
-    quickSort (array, f, pi);
+    quickSort (array, f, pi - 1);
     quickSort (array, pi + 1, l);
 }
