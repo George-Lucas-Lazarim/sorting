@@ -19,3 +19,12 @@ int partition (int array[], int f, int l) {
 
     return i + 1;
 }
+
+void quickSort (int array[], int f, int l) {
+    if (f >= l) return;
+
+    int pi = partition(array, f, l);
+
+    quickSort (array, f, pi);
+    quickSort (array, pi + 1, l);
+}
