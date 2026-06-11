@@ -45,3 +45,20 @@ void mergeSortTopDown (int array[], int f, int l) {
 
     merge(array, f, mid, l);
 }
+
+void mergeSortBottomUp (int array[], int size) {
+    for (int currSize = 1; currSize < size; currSize *= 2) {
+        for (int leftStart = 0; leftStart < size - 1; leftStart += 2 * currSize) {
+            int f = leftStart;
+
+            int mid = leftStart + currSize - 1;
+            
+            if (mid >= size - 1) break;
+
+            int calcEnd = leftStart + 2 * currSize - 1;
+            int l = (calcEnd < size - 1) ? calcEnd : (size - 1);
+
+            merge(array, f, mid, l);
+        }
+    }
+}
