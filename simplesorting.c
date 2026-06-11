@@ -20,7 +20,7 @@ int main() {
         return 1;
     }
 
-    printf("\nGenerating %d random numbers...", SIZE);
+    printf("Generating %d random numbers...\n", SIZE);
 
     srand(time(NULL));
 
@@ -32,7 +32,7 @@ int main() {
     clock_t start, end;
     double timeSpent;
 
-    printf("\nStarting speed test");
+    printf("\n=== Starting speed test ===");
 
     start = clock();
     bubbleSort(bubbleArray, SIZE);
